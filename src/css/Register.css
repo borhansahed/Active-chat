@@ -1,0 +1,57 @@
+.container {
+
+
+    min-height: 100vh;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+     
+ }
+ .registerSection{
+  
+    padding: 30px;
+     width: 500px;
+     height: 500px;
+     background-color: white;
+     border-radius: 10px;
+     
+ 
+ }
+ .registerForm {
+     display: flex;
+     flex-direction: column;
+    padding: 20px 70px 0px;
+     gap: 25px 0;
+ }
+
+ .registerForm input {
+     padding: 6px;
+     /* border: none; */
+     outline: none;
+      border-bottom: 1px solid #79b158;
+     
+    
+ }
+ .registerForm h3 {
+    font-size: 30px;
+     
+    
+ }
+ .registerForm p{
+ 
+     font-size: 14px;
+ }
+ button{
+     border: 1px solid #79b158;
+     background-color: #79b158;
+     padding: 3px 8px;
+     border-radius: 3px;
+     color: white;
+     font-size: 18px;
+     font-weight: bold;
+ }
+ .registerText{
+ 
+     font-size: 15px;
+     padding-top: 1px;
+ }
