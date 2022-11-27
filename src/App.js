@@ -1,5 +1,6 @@
 
 
+import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 
@@ -8,7 +9,8 @@ function App() {
     <div >
       <header>
       
-      <Login/>
+     <Home/>
+   
       </header>
 
       

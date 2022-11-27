@@ -12,7 +12,7 @@ const Register = () => {
 
     }
     return (
-        <section className='container'>
+        <section className='registerContainer'>
             <div className='registerSection'>
                 <div>
                     <div className='mb-7'>

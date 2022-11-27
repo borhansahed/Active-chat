@@ -1,0 +1,18 @@
+.chatsHeader{
+
+    padding: 28px 20px;
+    background-color: #04202c;
+    color: white;
+}
+.chatInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.chatIcons{
+    display: flex;
+    gap: 0px 25px;
+    font-size: 25px;
+}
+
+

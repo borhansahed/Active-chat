@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/Login.css'
-import { BsImage } from 'react-icons/bs';
 
 const Login = () => {
     const handleForm = (event) => {
@@ -12,7 +11,7 @@ const Login = () => {
 
     }
     return (
-        <section className='container'>
+        <section className='loginContainer'>
             <div className='loginSection'>
                 <div>
                     <div className='mb-7'>

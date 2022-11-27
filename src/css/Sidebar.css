@@ -1,0 +1,57 @@
+
+.profileContainer{
+
+display: flex;
+align-items: center;
+gap: 0px 10px;
+
+}
+.profileContainer button{
+  font-size: 10px;
+}
+.profileContainer img{
+
+    width: 3vh;
+   
+    border-radius: 50%;
+   
+}
+
+
+.sidebarContainer{
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    gap: 0px 30px;
+    background-color: #04202c;
+    
+    
+}
+
+.sidebarForm input{
+    width: 100%;
+    color: lightgray;
+    background-color: #06232e;
+    outline: none;
+    padding: 10px 8px;
+    border-bottom: 1px solid lightgray;
+  
+}
+
+.userContainer{
+
+    display: flex;
+    align-items: center;
+    gap: 0px 10px;
+    padding: 18px 15px 0px;
+    
+}
+.userContainer img{
+
+   width: 6vh;
+   border-radius: 50%;
+
+}
+.userContainer h4{
+    font-size: 13px;
+}

@@ -1,7 +1,7 @@
-.container {
+.loginContainer {
 
 
-   min-height: 100vh;
+   height: 100vh;
    display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,7 @@
 
     font-size: 14px;
 }
-button{
+.loginForm button{
     border: 1px solid #79b158;
     background-color: #79b158;
     padding: 3px 8px;
