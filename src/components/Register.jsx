@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsImage } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import '../css/Register.css'
 
 const Register = () => {
@@ -35,7 +36,7 @@ const Register = () => {
                
                 <button>Submit</button>
             </form>
-            <p className='text-center RegisterText '>Do you have an account? <span className='underline'>login</span> </p>
+            <p className='text-center RegisterText '>Do you have an account? <Link to={'/login'}><span className='underline'>login</span></Link>  </p>
                 </div>
            
 
