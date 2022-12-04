@@ -1,14 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link,  useNavigate } from 'react-router-dom';
+import {signInWithEmailAndPassword} from "firebase/auth";
+import auth from '../firebase-init'
 import '../css/Login.css'
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [error, setError] = useState("");
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+
+    const handleEmail = (event) => {
+        setEmail(event.target.value);
+    }
+    const handlePassword = (event) => {
+       setPassword(event.target.value);
+     
+    }
     const handleForm = (event) => {
         event.preventDefault();
-   console.log(event.target.name.value);
-   console.log(event.target.email.value);
-   console.log(event.target.password.value);
-   document.getElementById('name').value='';
+  
+  
+   
+   signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user);
+    setTimeout(() => {
+        navigate('/')
+      }, 2000);
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setError(errorMessage);
+    console.log(error, errorCode);
+
+  });
+
+   
 
     }
     return (
@@ -22,8 +54,9 @@ const Login = () => {
                    
 
             <form onSubmit={handleForm} className='loginForm' action="">
-                <input className='formInput' type="email" name='email' placeholder='email' />
-                <input className='formInput mt-4' type="password" name='password' placeholder='password' />
+                <input onBlur={handleEmail} className='formInput' type="email" name='email' placeholder='email' />
+                <input onBlur={handlePassword} className='formInput mt-4' type="password" name='password' placeholder='password' />
+                {error && <p className='text-red-600'>{error}</p>}
      
                 <button className='mt-3'>Submit</button>
             </form>

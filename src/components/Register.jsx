@@ -1,15 +1,43 @@
-import React from 'react';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { BsImage } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/Register.css'
+import auth from '../firebase-init';
+
 
 const Register = () => {
-    const handleForm = (event) => {
+    const navigate = useNavigate();
+    const [error, setError] = useState("");
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
+
+    const handleEmail = (event) => {
+        setEmail(event.target.value);
+    }
+    const handlePassword = (event) => {
+       setPassword(event.target.value);
+     
+    }
+    const handleForm  = async (event) => {
         event.preventDefault();
-   console.log(event.target.name.value);
-   console.log(event.target.email.value);
-   console.log(event.target.password.value);
-   document.getElementById('name').value='';
+   try {
+       
+       const res = await createUserWithEmailAndPassword(auth, email, password)
+     const user = res.user;
+        console.log(user);
+        toast.success("Register Successfully")
+        setTimeout(() => {
+            navigate('/login')
+          }, 2000);
+  } catch (error) {
+    console.log(error);
+    setError(error.message);
+      toast.error("sorry try again")
+  }
+
+
 
     }
     return (
@@ -24,8 +52,9 @@ const Register = () => {
 
             <form onSubmit={handleForm} className='registerForm' action="">
                 <input id='name' className='formInput' type="text"  name='name' placeholder='display name' />
-                <input className='registerFormInput' type="email" name='email' placeholder='email' />
-                <input className='registerFormInput' type="password" name='password' placeholder='password' />
+                <input onBlur={handleEmail} className='registerFormInput' type="email" name='email' placeholder='email' />
+                <input onBlur={handlePassword} className='registerFormInput' type="password" name='password' placeholder='password' />
+                {error && <p className='text-red-600'>{error}</p>}
                 <input style={{'display' : 'none', 'padding': '0'}} className='registerFormInput' type="file" id='file'/>
                
                    <label className='flex  item-center gap-x-2 text-gray-300'  htmlFor="file">
